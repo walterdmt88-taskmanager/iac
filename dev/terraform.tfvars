@@ -1,0 +1,9 @@
+prefix            = "proops"
+project           = "taskmanager" # your real project shortcode
+environment       = "dev"
+region            = "ap-southeast-1"
+region_code       = "apse1"
+responsible_party = "huy.devops.engineer@gmail.com"
+owner             = "baronwalter882@gmail.com"
+instance_type     = "t3.micro"
+purpose           = "api-server"
