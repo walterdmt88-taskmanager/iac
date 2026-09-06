@@ -26,11 +26,13 @@ module "ec2" {
 
   name = local.name
 
-  ami           = data.aws_ami.amazon_linux.id
+  ami           = coalesce(var.ami_id, data.aws_ami.amazon_linux.id)
   instance_type = var.instance_type
 
   vpc_security_group_ids = var.vpc_security_group_ids
   subnet_id              = var.subnet_id
+  key_name               = var.key_name
+  iam_instance_profile   = var.iam_instance_profile_name
 
   # Two-layer tag merge — common tags from env + per-resource tags
   tags = merge(var.tags, {

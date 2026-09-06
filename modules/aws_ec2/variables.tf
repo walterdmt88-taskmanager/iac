@@ -58,3 +58,29 @@ variable "subnet_id" {
   type        = string
   default     = null
 }
+
+variable "key_name" {
+  description = "Name of an existing EC2 key pair to attach for SSH access"
+  type        = string
+  default     = null
+}
+
+variable "iam_instance_profile_name" {
+  description = "Name of an IAM instance profile to attach (e.g. for SSM Session Manager access)"
+  type        = string
+  default     = null
+}
+
+variable "ami_id" {
+  description = <<-EOT
+    Pin to a specific AMI ID. If null, falls back to the most-recent Amazon
+    Linux 2023 AMI at apply time — fine for a brand-new environment, but NEVER
+    leave unset on a live instance: `ami` is a ForceNew attribute, so if a
+    newer AMI becomes "most recent" between applies (patch releases roll out
+    over time), the NEXT apply silently destroys and recreates the instance,
+    even for an unrelated change like a security-group rule. Pin once the
+    instance exists.
+  EOT
+  type        = string
+  default     = null
+}
