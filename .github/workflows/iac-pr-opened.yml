@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize]
 jobs:
   iac-plan:
-    uses: proops2026-taskmanager/proops2026-cicd-platform/.github/workflows/reusable-iac.yml@v1
+    uses: walterdmt88-taskmanager/proops2026-cicd-platform/.github/workflows/reusable-iac.yml@v1
     with:
       action: plan
       environment: dev

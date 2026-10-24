@@ -5,7 +5,7 @@ on:
     paths: ['iac/**']
 jobs:
   iac-apply:
-    uses: proops2026-taskmanager/proops2026-cicd-platform/.github/workflows/reusable-iac.yml@v1
+    uses: walterdmt88-taskmanager/proops2026-cicd-platform/.github/workflows/reusable-iac.yml@v1
     with:
       action: apply
       environment: dev
